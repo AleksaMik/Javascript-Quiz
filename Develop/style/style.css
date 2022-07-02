@@ -1,0 +1,47 @@
+ :root{
+background-color: #E0E8EA;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-style: normal;
+font-size: 30px;
+text-align: center;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding: 250px ;
+
+}
+
+#Greating {
+    padding: 20 px 20 px;
+    background-color:#E0E8EA ;
+}
+
+button {
+background-color: #3D7C92;
+box-sizing: border-box;
+display: inline-block;
+padding: 20px 60px;
+margin: 20px 40px;
+font-size: 25px;
+border-radius: 10px;
+
+}
+#Timer {
+float: right;
+text-align: right;
+
+
+
+
+}
+#Score{
+    float: left;
+}
+button:hover {
+    background-color: #516E78 ;
+}
+
+#Score:hover  {
+    color:#516E78;
+}
+
