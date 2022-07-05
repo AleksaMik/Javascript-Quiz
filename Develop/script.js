@@ -32,13 +32,13 @@ var QuestionIndex = 0
 
 // The array of questions for our quiz game.
 var questions = [
-  { q: 'Arrays in Javascript can be used to store __________.', 
-    a: '4. all of the above', 
-    choices: [{choice: '1. numbers'}, {choice: '2. booleans'}, {choice: '3. strings'}, {choice: '4. all of the above'}]
+  { q: 'How to write an IF statement in JavaScript?', 
+    a: '4. if (i == 5)', 
+    choices: [{choice: '1. if i != 5'}, {choice: '2. if i = 5'}, {choice: '3. if i = 5 then'}, {choice: '4. if (i == 5)'}]
   },
-  { q: 'Inside which HTML element do we put the javascript?', 
-    a: '3. <script>', 
-    choices: [{choice: '1. <h1>'}, {choice: '2. <js>'}, {choice: '3. <script>'}, {choice: '4. <head>'}]
+  { q: 'How does a FOR loop start?', 
+    a: '3. for (i = 0; i <= 5; i++)', 
+    choices: [{choice: '1. for (i = 0; i <= 5)'}, {choice: '2. for i = 1 to 5'}, {choice: '3. for (i = 0; i <= 5; i++)'}, {choice: '4. for i = 1 to 5'}]
   },
   { q: 'In the code -- setinterval(time(),1000) -- what is time()?', 
     a: '1. callback function', 
@@ -62,7 +62,7 @@ var questions = [
   },
 ];
 
-  //if go back button is hit on high score page
+
 var renderStartPage = function () {
   containerHighScoresEl.classList.add("hide")
   containerHighScoresEl.classList.remove("show")
@@ -84,7 +84,7 @@ var renderStartPage = function () {
   }
 }
 
-//every second, check if game-over is true, or if there is time left. Start time at 30. 
+
 var setTime = function () {
   timeleft = 30;
 
@@ -106,31 +106,31 @@ var timercheck = setInterval(function() {
 }
 
 var startGame = function() {
-  //add classes to show/hide start and quiz screen
+  
   containerStartEl.classList.add('hide');
   containerStartEl.classList.remove('show');
   containerQuestionEl.classList.remove('hide');
   containerQuestionEl.classList.add('show');
-  //Shuffle the questions so they show in random order
+  
   arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
   setTime()
   setQuestion()
 }
 
-//set next question for quiz
+
 var setQuestion = function() {
   resetAnswers()
   displayQuestion(arrayShuffledQuestions[QuestionIndex])
 }
 
-//remove answer buttons
+
 var resetAnswers = function() {
   while (answerbuttonsEl.firstChild) {
       answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
   };
 };
 
-//display question information (including answer buttons)
+
 var displayQuestion = function(index) {
   questionEl.innerText = index.q
   for (var i = 0; i < index.choices.length; i++) {
@@ -142,7 +142,7 @@ var displayQuestion = function(index) {
       answerbuttonsEl.appendChild(answerbutton)
       }
   };
-//display correct! on screen
+
 var answerCorrect = function() {
   if (correctEl.className = "hide") {
       correctEl.classList.remove("hide")
@@ -151,7 +151,7 @@ var answerCorrect = function() {
       wrongEl.classList.add("hide")
       }
   }  
-//display wrong! on screen
+
 var answerWrong = function() {
   if (wrongEl.className = "hide") {
       wrongEl.classList.remove("hide")
@@ -161,21 +161,20 @@ var answerWrong = function() {
   }
 }
 
-//check if answer is correct    
+  
 var answerCheck = function(event) {
   var selectedanswer = event.target
       if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText){
           answerCorrect()
-          score = score + 7
+          score = score + 5
       }
 
       else {
         answerWrong()
-        score = score - 1;
-        timeleft = timeleft - 3;
+        timeleft = timeleft - 2;
     };
 
-  //go to next question, check if there is more questions
+  
     QuestionIndex++
       if  (arrayShuffledQuestions.length > QuestionIndex + 1) {
           setQuestion()
@@ -186,7 +185,7 @@ var answerCheck = function(event) {
           }
 }
 
-  //Display total score screen at end of game
+ 
 var showScore = function () {
   containerQuestionEl.classList.add("hide");
   containerEndEl.classList.remove("hide");
@@ -197,7 +196,7 @@ var showScore = function () {
   containerScoreEl.appendChild(scoreDisplay);
 }       
 
-//create high score values
+
 var createHighScore = function(event) { 
   event.preventDefault() 
   var initials = document.querySelector("#initials").value;
@@ -213,15 +212,15 @@ initials: initials,
 score: score
 } 
 
-//push and sort scores
+
 HighScores.push(HighScore);
 HighScores.sort((a, b) => {return b.score-a.score});
 
-//clear visibile list to resort
+
 while (listHighScoreEl.firstChild) {
  listHighScoreEl.removeChild(listHighScoreEl.firstChild)
 }
-//create elements in order of high scores
+
 for (var i = 0; i < HighScores.length; i++) {
 var highscoreEl = document.createElement("li");
 highscoreEl.ClassName = "high-score";
@@ -233,13 +232,13 @@ saveHighScore();
 displayHighScores();
 
 }
-//save high score
+
 var saveHighScore = function () {
   localStorage.setItem("HighScores", JSON.stringify(HighScores))
       
 }
 
-//load values/ called on page load
+
 var loadHighScore = function () {
   var LoadedHighScores = localStorage.getItem("HighScores")
       if (!LoadedHighScores) {
@@ -261,7 +260,7 @@ var loadHighScore = function () {
   }
 }  
 
-//display high score screen from link or when intiials entered
+
 var displayHighScores = function() {
 
   containerHighScoresEl.classList.remove("hide");
@@ -293,7 +292,7 @@ var displayHighScores = function() {
       }
   
 }
-//clears high scores
+
 var clearScores = function () {
   HighScores = [];
 
@@ -307,14 +306,14 @@ var clearScores = function () {
 
 loadHighScore()
   
-//on start click, start game
+
 btnStartEl.addEventListener("click", startGame)
-//on submit button -- enter or click
+
 formInitials.addEventListener("submit", createHighScore)
-//when view high-scores is clicked
+
 ViewHighScoreEl.addEventListener("click", displayHighScores)
-//Go back button
+
 btnGoBackEl.addEventListener("click", renderStartPage)
-//clear scores button
+
 btnClearScoresEl.addEventListener("click", clearScores)
 

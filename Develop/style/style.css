@@ -2,23 +2,30 @@
     box-sizing: border-box;
   }
   
-  :root {
-    --primary: #0a0808c5;
-    --secondary: #8207a1;
-    --tertiary: rgb(211, 56, 144);
-    --white: rgb(255, 255, 255);
-    font-size: 62.5%;
-  }
-
-  body {
-    background: #ededed;
-    color: var(--secondary);
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  :root{
+    background-color: #E0E8EA;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 250px ;
+    
+    }
+    
+    .btn {
+    background-color: #3D7C92;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 20px 60px;
+    margin: 20px 40px;
+    font-size: 25px;
+    border-radius: 10px;
+    
   }
   
-  /* Header */
   header {
       display: flex;
       justify-content: space-between;
@@ -28,41 +35,42 @@
 
   #view-high-scores:hover {
       cursor: pointer;
-      color: var(--tertiary)
+      color: #24B2E3;
   }
 
   header h4 {
       padding-left: 20px;
-      font-size: 2.0rem;
+      font-size: 20px;
       display: inline;
   }
+
   
  .timer {
-      font-size: 2.0rem;
-      color: var(--primary);
+      font-size: 20px;
+      color: #343D40;
       display: inline;
       text-align: right;
       padding-right: 20px;
   }
 
-  /*Main content */
+
 .container {
       padding: 20px;
-      flex-direction: column;
       width: 50%;
       margin: auto;
+      
   }
 
   
  h1 {
-    color: var(--primary);
-    font-size: 3.0rem;
+    color: #343D40 ;
+    font-size: 40px;
     font-weight: bold;
   }
 
   p {
-    color: var(--primary);
-    font-size: 2.0rem;
+    color: #343D40 ;
+    font-size: 25px;
   }
 
   .start {
@@ -75,10 +83,9 @@
  }
 
   .questions {
-    align-items: flex-start;
-    justify-content: flex-start;
+   display: inline-flex;
     padding: 40px 20px;
-    margin: auto;
+    margin: 0;
   }
 
   .end h1, .end p {
@@ -95,7 +102,7 @@
   }
 
   .end input:focus {
-    border: 2px solid var(--secondary);
+    border: 2px solid #343D40;
   }
 
   .show {
@@ -107,9 +114,9 @@
   }
 
   #question {
-    color: var(--primary);
+    color: #343D40 ;
     text-align: left;
-    font-size: 3.0rem;
+    font-size: 30px;
     font-weight: bold;
   }
 
@@ -117,28 +124,15 @@
       text-align: left;
   }
 
-  /*Button Styling */
-  .btn {
-      background: var(--secondary);
-      color: var(--white);
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 0 3px grey;
-      margin-top: 10px;
-  }
-
   .btn:hover {
-      background: var(--tertiary);
+      background:#24B2E3;
       border-radius: 10px;
-      box-shadow: 0 2px grey;
       cursor: pointer;
   }
 
   .btn:active {
       border: none;
       outline: none;
-      box-shadow: 0 0 grey;
   }
 
   .btn:focus {
@@ -153,41 +147,37 @@
   }
 
  .startend {
-     width: 25%;
+     width: 45%;
      margin-top: 10px;
  }
 
  .answerbtn {
-     width: 50%;
+     width: 100%;
      text-align: left;
-     font-size: 3.0vw;
+     font-size: 30px;
  }
-
- /* correct/wrong styling */
 
  .banner {
      font-size: 25px;
      text-align: center;
-     color: rgba(199, 187, 187, 0.8);
+     color: #343D40;
      font-style: italic;
      margin: 0 100px;
  }
 
 .banner h2 {
-    border-top: 2px solid rgba(199, 187, 187, 0.8);
+    border-top: 2px solid #343D40;
     margin: 0 auto;
     text-align: center;
     padding-top: 5px;
 }
-
-/* List for High Scores */
  
  ol {
     list-style-type: number;
  }
 
  li:nth-child(odd) {
-     background-color: rgba(228, 151, 164, 0.5);;
+     background-color:#6DA7BB  ;
  }
 
 
@@ -195,25 +185,27 @@ li {
     font-size: 4.0vw;
 }
 
-/* media query for smaller screens */
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 780px) {
 
     .btn {
+        display: flex;
         width: 100%;
-        font-size: 3.0vw;
+        font-size: 20px;
     }
 
     #question {
-        font-size: 4.5vw;
+        display: flex;
+        font-size: 20px;
     }
 
     h1 {
-        font-size: 4.5vw;
+        display: flex;
+        font-size: 25px;
     }
 
     p {
-        font-size: 3.0vw;
+        display: flex;
+        font-size: 20px;
     }
 
 }
