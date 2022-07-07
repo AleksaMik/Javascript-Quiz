@@ -31,6 +31,6 @@ A new web page with title "Javascript-Quiz" was created. In order to start the q
 
 
 
-[link to the web] (//Users/aleksandramikhailichenko/Desktop/Javascript-Quiz/index.html)
+[link to the web] (https://aleksamik.github.io/Javascript-Quiz/)
 
 [link to github repo] (https://github.com/AleksaMik/Javascript-Quiz)
